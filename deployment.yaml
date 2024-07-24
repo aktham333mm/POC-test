@@ -1,40 +1,23 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: "${APP}"
+  name: test
   labels:
-    app: "${APP}"
+    app: test
     poc: tr
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: "${APP}"
+      app: test
   template:
     metadata:
       labels:
-        app: "${APP}"
+        app: test
     spec:
-      imagePullSecrets:
-      - name: "gitlab-auth-${NAMESPACE}"
       containers:
-      - name: "${APP_NAME}"
-        image: "$IMAGE_NAME:$VERSION"
+      - name: test
+        image: nginx 
         ports:
           - containerPort: 8080
-        env:
-        - name: name
-          valueFrom:
-            secretKeyRef:
-              name: "${APP_NAME}-credentials"
-              key: NAME
-        - name: pass
-          valueFrom:
-            secretKeyRef:
-              name: "${APP_NAME}-credentials"
-              key: PASS
-        - name: url
-          valueFrom:
-            secretKeyRef:
-              name: "${APP_NAME}-credentials"
-              key: URL
+        
