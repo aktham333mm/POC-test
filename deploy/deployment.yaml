@@ -6,7 +6,7 @@ metadata:
     app: test
     poc: tru
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: test
