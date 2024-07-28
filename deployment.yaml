@@ -4,7 +4,7 @@ metadata:
   name: test
   labels:
     app: test
-    poc: tr
+    poc: tru
 spec:
   replicas: 4
   selector:
